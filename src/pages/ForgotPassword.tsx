@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/forgotPassword.css";
+import "../css/ForgotPassword.css";
 import {sendForgetPasswordLink} from "../component/common/authCommon" 
 
 const ForgotPassword: React.FC = () => {
