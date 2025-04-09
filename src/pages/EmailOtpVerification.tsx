@@ -1,4 +1,4 @@
-import React, {  FC,useState,useEffect } from "react";
+import React, {  FC,useState } from "react";
 import "../css/EmailOtpVerification.css"; // Import the CSS file
 import {OtpType} from "../types/routerType";
 import { verifyRegisterEmail } from "../component/common/authCommon";
