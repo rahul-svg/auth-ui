@@ -5,7 +5,7 @@ import axios from 'axios';
 // Create the axios instance
 
 export const axiosInstance = axios.create({
-    baseURL:'http://localhost:7000',
+    baseURL:'https://auth-services-u1yh.onrender.com',
     withCredentials: true, 
     headers:{'Content-Type':'application/json'}
 })
@@ -34,7 +34,7 @@ axiosInstance.interceptors.request.use(
             originalRequest._retry = true; 
             try{
                 const refreshToken = localStorage.getItem("refreshToken");
-                const response = await axiosInstance.post("http://localhost:7000/auth-services/refresh", { refreshToken });
+                const response = await axiosInstance.post("https://auth-services-u1yh.onrender.com/auth-services/refreshToken", { refreshToken });
                 localStorage.setItem("accessToken", response.data.accessToken);
 
                 // Retry the original request with new token
@@ -44,6 +44,7 @@ axiosInstance.interceptors.request.use(
                 console.error("Token refresh failed:", err);
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");
+                localStorage.removeItem("user");
                 window.location.href = "/login";
             }
         }

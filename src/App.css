@@ -1,56 +1,141 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+  background-image: url('./assets/markus-spiske-iar-afB0QQw-unsplash.jpg');
+  background-size: cover;        /* Ensures the image covers the full area */
+  background-position: center;   /* Keeps the image centered */
+  background-repeat: no-repeat;  /* Prevents tiling */
 }
 
-body {
-  background: url('./assets//authBackground.webp') no-repeat center center fixed;
-  background-size: cover;
-}
-
-form{
-  background: #cdcded;
-    width: 40vw;
-    height: 60vh;
-    position: relative;
-    z-index: 99;
-    border-radius: 10px;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 .card {
-  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: #cdcded;
+  width: 90%;
+  max-width: 400px;
+  height: auto;              /* Allow height to adjust based on content */
+
+  position: relative;
+  z-index: 99;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
-.read-the-docs {
-  color: #888;
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  width:100%;
+  height: auto;
+  padding:10px;
 }
+
+form > div{
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+}
+
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+
+.custom-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  background-color: #eee;
+  border: 2px solid #999;
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+}
+
+
+label{
+  display: inline-block;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+button[type="submit"]{
+  background-color: #4caf50;    /* Green background */
+  color: white;                 /* White text */
+  padding: 10px 20px;           /* Spacing */
+  border: none;                 /* No border */
+  border-radius: 5px;           /* Rounded corners */
+  font-size: 16px;              /* Font size */
+  font-family: sans-serif;      /* Modern font */
+  cursor: pointer;              /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;    /* Darker on hover */
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);       /* Slight press effect */
+}
+
+.form-control{
+  background: #f4f4f4!important;
+}
+
+.linkParagraph {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.linkParagraph a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.linkParagraph a:hover {
+  color: #388e3c; /* Slightly darker green on hover */
+  text-decoration: underline;
+}
+
+
+.redirectSection{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+

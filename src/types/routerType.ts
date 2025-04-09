@@ -9,6 +9,16 @@ export interface AuthState {
 }
 
 export interface AuthForm {
+  username?:string,
   email:string;
   password:string;
+  confirmPassword?:string;
 }
+
+export type OtpType = string;
+
+export type emailType = string;
+
+export type resetPasswordToken = string | null;
+
+export type passwordType = string;

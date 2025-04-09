@@ -1,5 +1,6 @@
 import { FC, FormEvent,useState } from "react";
 import {AuthForm} from "../types/routerType"
+import "../css/Login.css"
 
 import {loginUser} from '../component/common/authCommon'
 
@@ -23,11 +24,12 @@ const Login: FC = () => {
   };
 
   return (
+    <div className="card">
     <form onSubmit={handleSubmit}>
-      <h3>Login</h3>
+       <h2>Login</h2>
 
       <div className="mb-2">
-        <label>Email address</label>
+        <label>Email address:</label>
         <input
           type="email"
           className="form-control"
@@ -40,7 +42,7 @@ const Login: FC = () => {
       </div>
 
       <div className="mb-2">
-        <label>Password</label>
+        <label>Password:</label>
         <input
           type="password"
           className="form-control"
@@ -56,7 +58,7 @@ const Login: FC = () => {
         <div className="custom-control custom-checkbox">
           <input
             type="checkbox"
-            className="custom-control-input"
+            className="custom-control-input checkmark"
             id="customCheck1"
           />
           <label className="custom-control-label" htmlFor="customCheck1">
@@ -70,14 +72,17 @@ const Login: FC = () => {
           Submit
         </button>
       </div>
-
-      <p className="forgot-password text-right">
-        Forgot <a href="#">password?</a>
-      </p>
-      <p className="text-right">
-        New <a href="/register">Register?</a>
-      </p>
-    </form>
+      
+      <div className="mb-2 redirectSection">
+        <p className="forgot-password linkParagraph">
+           Forgot <a href="/forgot-password">Password?</a>
+       </p>
+        <p className="linkParagraph">
+          New <a href="/register">Register?</a>
+        </p> 
+      </div>
+      </form>
+    </div>
   );
 };
 

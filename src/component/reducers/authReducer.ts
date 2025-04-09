@@ -4,11 +4,15 @@ import { AuthForm } from "../../types/routerType";
 interface AuthState {
   isLoggedIn: boolean;
   user: AuthForm | null;
+  verificationToken:string|null;
+  error:string|null;
 }
 
 const initialState: AuthState = {
   isLoggedIn: false,
   user: null,
+  verificationToken:null,
+  error:null
 };
 
 const authSlice = createSlice({
