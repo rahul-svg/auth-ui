@@ -1,6 +1,7 @@
 import { FC, FormEvent,useState } from "react";
 import {AuthForm} from "../types/routerType"
-import "../css/Login.css"
+import "../css/Login.css";
+import { useNavigate,NavigateFunction } from "react-router-dom";
 
 import {loginUser} from '../component/common/authCommon'
 
@@ -10,7 +11,8 @@ password:"",
 }
 
 const Login: FC = () => {
-    const [form,setForm] = useState(authForm)
+    const [form,setForm] = useState(authForm);
+    const navigate:NavigateFunction = useNavigate();
 
     const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -20,7 +22,7 @@ const Login: FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    loginUser(form)
+    loginUser(form,navigate)
   };
 
   return (
