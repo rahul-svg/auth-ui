@@ -4,7 +4,7 @@ import axios from "axios";
 import {apiSuccessMessage,apiErrorMessage,} from "../Notifications/apiMessages";
 import { NavigateFunction  } from "react-router-dom";
 
-export const registerUser = async (formData: AuthForm,navigate:NavigateFunction) => {debugger;
+export const registerUser = async (formData: AuthForm,navigate:NavigateFunction) => {
   try {
     const response = await axiosInstance.post(
       "/auth-services/register",
@@ -30,14 +30,15 @@ export const registerUser = async (formData: AuthForm,navigate:NavigateFunction)
   }
 };
 
-export const loginUser = async (formData: AuthForm) => {
+export const loginUser = async (formData: AuthForm,navigate:NavigateFunction) => {
   try {
     const response = await axiosInstance.post("/auth-services/login", formData);
     if (response.data && response.data.status) {
       localStorage.setItem("accessToken", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);
-      localStorage.setItem("user", response.data.user);
+      localStorage.setItem("user",JSON.stringify(response.data.user));
       apiSuccessMessage(response.data.message);
+      navigate("/auth-dashbaord");
     }else {
       apiErrorMessage(response.data.message);
     }
@@ -55,7 +56,7 @@ export const logout = () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
   localStorage.removeItem("user");
-  window.location.href = "/login";
+  window.location.href = "/";
 };
 
 export const sendForgetPasswordLink = async (email: emailType) => {
